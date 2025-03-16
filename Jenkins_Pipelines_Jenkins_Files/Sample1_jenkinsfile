@@ -25,7 +25,10 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application here (e.g., compile, package, etc.)
-                sh 'echo "In Build Step"'
+                sh '''
+                ls
+                echo "In Build Step"
+                '''
             }
         }
 
@@ -39,7 +42,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                sh 'echo "Value of ENV Varaible is: ${MY_ENV_VAR}"'
+                sh 'echo "Value of ENV Varaible is "$MY_ENV_VAR""'
             }
         }
     }
