@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Define environment variables here
         MY_ENV_VAR = 'Custom Value'
     }
 
@@ -10,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    // Clone the Git repository's master branch
+                    
                     def gitRepoUrl = 'https://github.com/rocky019/Dotnet_Project.git'
 
                     checkout([$class: 'GitSCM', 
