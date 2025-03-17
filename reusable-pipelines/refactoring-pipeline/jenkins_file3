@@ -18,7 +18,7 @@ pipeline {
                   mvn -version
                 '''
             }
-        }
+        }       
 
         stage('Unit Test') {
             steps {
@@ -36,12 +36,12 @@ pipeline {
                 VERSION_SUFFIX = "${sh(script:'if [ "${RELEASE}" = false ] ; then echo -n "${INT_VERSION}"ci:"${BUILD_NUMBER}"; else echo -n "${RELEASE_VERSION}":"${BUILD_NUMBER}"; fi', returnStdout: true)}"
             }
             steps {
-                echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
+                echo "Building version ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
                 echo 'Mention your Application Build Code here!!!'
                 dir('./java-tomcat-sample') {
                         sh '''
-                            mvn versions:set -DnewVersion="${VERSION_SUFFIX}"-SNAPSHOT
-                            mvn versions:update-child-modules
+                            mvn versions set -DnewVersion="${VERSION_SUFFIX}"-SNAPSHOT
+                            mvn versions update-child-modules
                             mvn clean install -e
                         '''
                 }
