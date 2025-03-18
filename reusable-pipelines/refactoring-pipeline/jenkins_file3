@@ -42,7 +42,7 @@ pipeline {
                         sh '''
                             mvn versions:set -DnewVersion="${VERSION_SUFFIX}"-SNAPSHOT
                             mvn versions:update-child-modules
-                            mvn clean package
+                            mvn clean package -X
                         '''
                 }
                 
