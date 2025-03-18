@@ -44,20 +44,8 @@ pipeline {
                             mvn versions:update-child-modules
                             mvn clean package
                         '''
-                },
-                
-                {
-                sh '''
-                     if [ -z "${VERSION_SUFFIX}" ]; then
-                     echo "Error: VERSION_SUFFIX is not set"
-                     exit 1
-                     fi
-                     mvn versions:set -DnewVersion="${VERSION_SUFFIX}"-SNAPSHOT
-                     mvn versions:update-child-modules
-                     mvn clean package
-                  
-                  '''
                 }
+                
             }
         }
 
