@@ -6,7 +6,7 @@ pipeline {
     }
     
     environment {
-      workspace = '/c/ProgramData/Jenkins/.jenkins/workspace/Docker_pipeline/'
+      // workspace = '/c/ProgramData/Jenkins/.jenkins/workspace/Docker_pipeline/'
       VERSION = '0.1.0'
       RELEASE_VERSION = 'R.2'
     }
@@ -19,7 +19,7 @@ pipeline {
               mvn -version
           '''
           sh 'printenv'
-          sh 'ls -l $workspace'
+          sh 'ls -l $WORKSPACE'
         }
       }
 
