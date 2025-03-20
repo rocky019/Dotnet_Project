@@ -1,6 +1,7 @@
 pipeline {
     agent {
         docker {
+            customWorkspace 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Docker_pipeline\\'
             image 'maven:latest'
         }
     }
