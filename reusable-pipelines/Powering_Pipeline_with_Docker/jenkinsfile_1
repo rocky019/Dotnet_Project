@@ -1,12 +1,12 @@
 pipeline {
     agent {
         docker {
-            customWorkspace 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Docker_pipeline\\'
             image 'maven:latest'
         }
     }
     
     environment {
+      workspace = '/c/ProgramData/Jenkins/.jenkins/workspace/Docker_pipeline/'
       VERSION = '0.1.0'
       RELEASE_VERSION = 'R.2'
     }
@@ -19,7 +19,7 @@ pipeline {
               mvn -version
           '''
           sh 'printenv'
-          sh 'ls -l $WORKSPACE'
+          sh 'ls -l $workspace'
         }
       }
 
